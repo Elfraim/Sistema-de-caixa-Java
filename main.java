@@ -6,22 +6,22 @@ import java.util.ArrayList;
 
 public class main {
 		public static void main(String[] args) {
-		/*	1- Adicionar produtos: Cadastrar um produto, Validar de qual tipo ele È 
+		/*	1- Adicionar produtos: Cadastrar um produto, Validar de qual tipo ele √© 
 		 * (Quantidade ou Quilos), Adicionar pela unidade ou Quilos.
 
 			2-Listar Produtos: Listar todos os produtos cadastrados
 
-			3-Editar Produtos: Editar produto em uma posiÁ„o especifica do ArrayList(); (BONUS, n„o È obrigado a fazer)
+			3-Editar Produtos: Editar produto em uma posi√ß√£o especifica do ArrayList(); (BONUS, n√£o √© obrigado a fazer)
 
 			4-Cadastrar Cliente: Cadastrar Nome e CPF do cliente.
 
-			5-Editar Cliente: Editar Clientes em uma posiÁ„o especÌfica do
-			 ArrayList() (BONUS, n„o È obrigado a fazer)
+			5-Editar Cliente: Editar Clientes em uma posi√ß√£o espec√≠fica do
+			 ArrayList() (BONUS, n√£o √© obrigado a fazer)
 
 			6-Listar Clientes: Listar todos os clientes cadastrados.
 
-			7-LanÁar compra; Realizar fluxo atual de lanÁamento de compra, com clientes 
-			e produtos previamente cadastrados, o usu·rio ir· selecionar cliente e produto. 
+			7-Lan√ßar compra; Realizar fluxo atual de lan√ßamento de compra, com clientes 
+			e produtos previamente cadastrados, o usu√°rio ir√° selecionar cliente e produto. 
 
 			10 - Sair do programa - Encerrar o programa*/
 	
@@ -34,7 +34,8 @@ public class main {
 			boolean sair=false;
 			String nomePesq;
 	       ArrayList ListaClient=new ArrayList();
-			
+			/*	Essa e a parte de declara√ß√£o de  variaveis3
+			 ou seja tudo que vai ser usado no sistema*/
 			JOptionPane.showMessageDialog(null, "Welcome to MERCADO DO SEU ZEH"
 					);
 			String nome; 
@@ -46,27 +47,29 @@ public class main {
 				
 			
 				for (boolean i = false; i !=true;) 
-				{menu=Integer.parseInt(JOptionPane.showInputDialog("Escolha a opÁ„o desejada"
+				{menu=Integer.parseInt(JOptionPane.showInputDialog("Escolha a op√ß√£o desejada"
 					+ "\n 1-Adicionar produtos"
 					+ "\n 2-listar produtos "
 					+ "\n 3-editar produtos "
 					+ "\n 4-cadastrar cliente"
-					+ "\n 5-Editar cliente "
-					+ "\n 6-listar cliente"
-					+ "\n 7-LanÁar compra"
-					+ "\n 10-Sair do programa")); 
+					+ "\n 5-listar cliente"
+					+ "\n 6-Lan√ßar compra"
+					+ "\n 7-Sair do programa")); 
 			switch (menu) {
 				case 1:
+					/* Parte do sistema em que e cadastrado o produto 
+					Coloca se Nome e o pre√ßo e Quantidade ou kilos as variaveis recebem o mesmo */
 					while ( menu==1) {
 					 nome = JOptionPane.showInputDialog("Escreva o nome do produto");
-					 precoUnitario = Double.parseDouble(JOptionPane.showInputDialog("Escreva o preÁo por unidade"));
+					 precoUnitario = Double.parseDouble(JOptionPane.showInputDialog("Escreva o pre√ßo por unidade"));
 					 
-					boolean sair2=false; 	
+					boolean sair2=false; 
+						/* Parte do sistema em que se pode sair */
 					while(sair2==false) {
 					 int op=0; 
 					 op = Integer.parseInt(JOptionPane.showInputDialog("O produto e em Kg ou unidade?"
 						+ "\n Digite 1 para quilos e 2 para unidade"));
-					 
+					 /* Parte do sistema em que Se escolhe O PRODUTO em Quantidade ou em Kilos apos colocar isso se for valido o produto e cadastrado  */
 					 if (op==1) {
 						peso = Double.parseDouble(JOptionPane.showInputDialog("Escreva o peso total em (KG) do produto"));
 						sair2=true;
@@ -75,7 +78,7 @@ public class main {
 						sair2=true;
 					}else {
 						
-						JOptionPane.showMessageDialog(null, "Infelizmente essa opÁ„o È invalida \n"	);	
+						JOptionPane.showMessageDialog(null, "Infelizmente essa op√ß√£o √© invalida \n"	);	
 					}
 					} 
 					produto.setNome(nome);
@@ -83,20 +86,21 @@ public class main {
 				
 					produto.setPeso(peso);
 					produto.setPrecoUnitario(precoUnitario);
-					opcao = Integer.parseInt(JOptionPane.showInputDialog("Deseja adicionar mais um produto: 1 - Sim | 0 - N„o"));
-				 	
+					opcao = Integer.parseInt(JOptionPane.showInputDialog("Deseja adicionar mais um produto: 1 - Sim | 0 - N√£o"));
+				 	/* Nessa Parte do sistema voce pode cadastrar mais produtos  digitando 1 ou escolhe sair digitando 0 */
 					carrinho.colocarProdutoNoCarrinho(nome, precoUnitario, peso);
 					if (opcao==0) {
 				 		menu=0;
 				 		JOptionPane.showMessageDialog(null, "Voce retornara ao  sistema");
+						/* SE a escolha for n√£o adicionar mais nada retorna se ao sistema */
 				 	}else if(opcao !=0 &&opcao !=1){
-				 		JOptionPane.showMessageDialog(null, "Infelizmente essa opÁ„o È invalida \n"	);
+				 		JOptionPane.showMessageDialog(null, "Infelizmente essa op√ß√£o √© invalida \n"	);
 				 		
 					} 
 					}
 					break;
 				case 2:
-					
+					/* Parte do sistema em que se lista os produtos cadastrados*/
 					JOptionPane.showMessageDialog(null,carrinho.listaDeProdutos());
 					break;
 				case 3:
@@ -108,11 +112,12 @@ public class main {
 						carrinho.listaDeProdutos();
 						
 					}else {
-						JOptionPane.showMessageDialog(null," O produto n„o consta na lista");						
+						JOptionPane.showMessageDialog(null," O produto n√£o consta na lista");						
 					}
 					break;
 				case 4:
-					
+					/* Parte do sistema em que e cadastrado o cliente 
+					Coloca se Nome e o cpf e as variaveis recebem o mesmo */
 			String nomeC = JOptionPane.showInputDialog("Escreva o nome do cliente");
 			String cpf = JOptionPane.showInputDialog("Escreva o cpf do cliente");
 			
@@ -123,18 +128,15 @@ public class main {
 	       	ListaClient.add(cliente);
 			break;
 				case 5:
-					
-					break;
-				case 6:
 					JOptionPane.showMessageDialog(null, ListaClient, "Resultado da compra", 1);			
 					break;
-				case 7:
+				case 6:
 						JOptionPane.showMessageDialog(null, caixa.dadosCompra(), "Resultado da compra", 1);
 					break;
                   
-				   case 10:
-					int  num=Integer.parseInt(JOptionPane.showInputDialog("VocÍ quer mesmo sair do sistema"
-							+ "\n digite 1 para sim 0 para n„o:"));
+				   case 7:
+					int  num=Integer.parseInt(JOptionPane.showInputDialog("Voc√™ quer mesmo sair do sistema"
+							+ "\n digite 1 para sim 0 para n√£o:"));
 					   if (num==1){
 						i=true; 
 						sair=true;
@@ -150,8 +152,8 @@ public class main {
 					break;
 					
 				  default:
-					JOptionPane.showMessageDialog(null, "Infelizmente essa opÁ„o È invalida \n"
-							+ "Digite o numero de uma das opÁıes de 1 a 7 ou 10 para sair ");
+					JOptionPane.showMessageDialog(null, "Infelizmente essa op√ß√£o √© invalida \n"
+							+ "Digite o numero de uma das op√ß√µes de 1 a 7 ou 10 para sair ");
 					i=true; 
 					
 					break;
